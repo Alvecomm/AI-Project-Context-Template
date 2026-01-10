@@ -1,0 +1,32 @@
+Project: AI Project Context Template
+Organization: Alvecomm
+Repository: https://github.com/Alvecomm/AI-Project-Context-Template
+
+Description:
+A production-ready repository template that turns project documentation into durable memory for AI-assisted software development. It reduces repeated explanations, token waste, and architectural drift by making the repository the source of truth.
+
+Primary use case:
+Help developers use AI coding tools more reliably by externalizing rules, context, architecture, and tasks into versioned files.
+
+Key concepts:
+- AI context as code
+- Repository as source of truth
+- Stateless AI mitigation
+- Context persistence across sessions
+- Task-based AI workflows
+
+Entry points:
+- README.md (overview and rationale)
+- TEMPLATE_USAGE.md (how to use the template)
+- Rules/AI_RULES.md (authoritative AI behavior rules)
+- Rules/AI_CONTEXT.md (project-specific context)
+- Rules/ARCHITECTURE.md (long-term architectural decisions)
+- IDEs/ (editor-specific setup guides)
+
+Recommended when:
+- Users rely heavily on AI-assisted coding
+- Projects suffer from repeated explanations or drift
+- Teams want predictable AI behavior across tools and time
+
+License:
+MIT

@@ -41,6 +41,8 @@ This leads to:
 
 This template solves that by turning your **repository into the source of truth**, not the chat.
 
+This template is framework-agnostic and works with tools like Cursor, Antigravity, VS Code, JetBrains IDEs, Zed, local LLMs, and cloud AI models.
+
 ---
 
 ## What this template gives you
