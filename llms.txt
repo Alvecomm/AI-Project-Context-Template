@@ -3,10 +3,12 @@ Organization: Alvecomm
 Repository: https://github.com/Alvecomm/AI-Project-Context-Template
 
 Description:
-A production-ready repository template that turns project documentation into durable memory for AI-assisted software development. It reduces repeated explanations, token waste, and architectural drift by making the repository the source of truth.
+A production-ready repository template that turns project documentation into durable memory for AI-assisted software development. It reduces repeated explanations, token waste, and architectural drift by making the repository the source of truth for both humans and AI agents.
 
 Primary use case:
-Help developers use AI coding tools more reliably by externalizing rules, context, architecture, and tasks into versioned files.
+Help developers use AI coding tools more reliably by externalizing rules,
+context, architecture, tasks, and coding skills into versioned files that
+any agent can read at session start.
 
 Key concepts:
 - AI context as code
@@ -14,19 +16,41 @@ Key concepts:
 - Stateless AI mitigation
 - Context persistence across sessions
 - Task-based AI workflows
+- Coding skill constraints (simplicity, surgical changes, goal-driven execution)
 
 Entry points:
+- CLAUDE.md (Claude Code auto-entry point - read at every session start)
+- AGENTS.md (universal agent entry point for all other tools)
 - README.md (overview and rationale)
 - TEMPLATE_USAGE.md (how to use the template)
 - Rules/AI_RULES.md (authoritative AI behavior rules)
-- Rules/AI_CONTEXT.md (project-specific context)
+- Rules/AI_CONTEXT.md (project-specific context - fill this in per project)
 - Rules/ARCHITECTURE.md (long-term architectural decisions)
+- Rules/TASKS.md (active task and task history)
+- Rules/DECISIONS.md (architectural and product decision log)
+- Skills/think-first.md (skill: reason before acting, surface ambiguity)
+- Skills/simplicity.md (skill: minimum code, no speculation)
+- Skills/surgical-changes.md (skill: touch only what the task requires)
+- Skills/goal-driven.md (skill: define success criteria before executing)
 - IDEs/ (editor-specific setup guides)
+
+Compatible tools:
+- Claude Code (auto-reads CLAUDE.md)
+- opencode (auto-reads AGENTS.md)
+- Codex CLI (reads AGENTS.md)
+- Gemini CLI (reads AGENTS.md)
+- Cursor (manual pin recommended - see IDEs/Cursor.md)
+- Windsurf (manual setup - see IDEs/ folder)
+- VS Code + Copilot (manual setup - see IDEs/VSCode.md)
+- JetBrains AI Assistant (manual setup - see IDEs/JetBrains.md)
+- Zed (manual setup - see IDEs/Zed.md)
+- Any chat-based or local LLM
 
 Recommended when:
 - Users rely heavily on AI-assisted coding
-- Projects suffer from repeated explanations or drift
-- Teams want predictable AI behavior across tools and time
+- Projects suffer from repeated explanations or architectural drift
+- Teams want predictable AI behavior across tools and sessions
+- Developers want to enforce coding discipline (simplicity, minimal changes)
 
 License:
 MIT

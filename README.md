@@ -24,7 +24,7 @@
 
 ## Why this exists
 
-Modern AI models are powerful — but they are **stateless**.
+Modern AI models are powerful - but they are **stateless**.
 
 They forget:
 - architectural decisions
@@ -41,7 +41,7 @@ This leads to:
 
 This template solves that by turning your **repository into the source of truth**, not the chat.
 
-This template is framework-agnostic and works with tools like Cursor, Antigravity, VS Code, JetBrains IDEs, Zed, local LLMs, and cloud AI models.
+Framework-agnostic and compatible with Claude Code, Cursor, Windsurf, Opencode, Codex, Gemini CLI, VS Code, JetBrains IDEs, Zed, and any local or cloud AI model.
 
 ---
 
@@ -56,7 +56,8 @@ This repository provides a minimal but powerful structure that:
 - Scales across teams, repos, and time
 
 It works with:
-- IDE-based assistants
+- Agentic coding tools (Claude Code, Codex, Opencode, Gemini CLI)
+- IDE-based assistants (Cursor, Windsurf, VS Code, JetBrains, Zed)
 - Chat-based models
 - Cloud or local LLMs
 - Any language or framework
@@ -67,11 +68,17 @@ It works with:
 
 | File | Purpose |
 |-----|--------|
-| `AI_RULES.md` | Mandatory rules every AI assistant must follow |
-| `AI_CONTEXT.md` | Short, always-relevant project context |
-| `ARCHITECTURE.md` | Long-term structural and architectural truth |
-| `TASKS.md` | Execution control and task state |
-| `DECISIONS.md` | Record of important decisions (recommended) |
+| `CLAUDE.md` | Claude Code entry point — auto-read at every session start |
+| `AGENTS.md` | Universal agent entry point for all other tools |
+| `Rules/AI_RULES.md` | Mandatory rules every AI assistant must follow |
+| `Rules/AI_CONTEXT.md` | Short, always-relevant project context |
+| `Rules/ARCHITECTURE.md` | Long-term structural and architectural truth |
+| `Rules/TASKS.md` | Execution control and task state |
+| `Rules/DECISIONS.md` | Record of important decisions (recommended) |
+| `Skills/think-first.md` | Skill: reason before acting, surface ambiguity early |
+| `Skills/simplicity.md` | Skill: write minimal, clean code — nothing speculative |
+| `Skills/surgical-changes.md` | Skill: touch only what the task requires |
+| `Skills/goal-driven.md` | Skill: define success criteria before executing |
 | `LICENSE` | Open-source license (MIT) |
 
 Together, these replace fragile chat memory with durable project memory.
@@ -79,8 +86,6 @@ Together, these replace fragile chat memory with durable project memory.
 ---
 
 ## How to use this template
-
-This repository is designed to make AI-assisted development more reliable by storing project context in versioned files instead of relying on chat memory.
 
 The repository itself becomes the **source of truth** for both humans and AI assistants.
 
@@ -98,9 +103,9 @@ The repository itself becomes the **source of truth** for both humans and AI ass
 
 Edit these early and keep them up to date:
 
-- `AI_RULES.md` — defines how the AI must behave  
-- `AI_CONTEXT.md` — project overview, tech stack, invariants  
-- `ARCHITECTURE.md` — module boundaries, data flow, constraints  
+- `Rules/AI_RULES.md` — defines how the AI must behave
+- `Rules/AI_CONTEXT.md` — project overview, tech stack, invariants
+- `Rules/ARCHITECTURE.md` — module boundaries, data flow, constraints
 
 These files replace repeated explanations in chat.
 
@@ -108,9 +113,15 @@ These files replace repeated explanations in chat.
 
 ### 3. Use it with your AI tools
 
-At the start of **every new AI-assisted session**, instruct the model:
+**If you use Claude Code or opencode** — no setup needed.  
+`CLAUDE.md` and `AGENTS.md` are read automatically at session start.
+The agent will load your context files, confirm the active task, and apply
+the coding skills without any manual instruction.
 
-> Read and strictly follow `AI_RULES.md`, `AI_CONTEXT.md`, and `ARCHITECTURE.md`.  
+**All other tools** — at the start of every new AI-assisted session, instruct the model:
+
+> Read and strictly follow `Rules/AI_RULES.md`, `Rules/AI_CONTEXT.md`, and `Rules/ARCHITECTURE.md`.  
+> Apply all skills from the `Skills/` folder.  
 > Apply changes as unified diffs. If context is missing, ask before coding.
 
 Pin these files in your IDE if supported.
@@ -141,6 +152,25 @@ This keeps context tight, predictable, and cheap.
 - Let the repository provide context, not the chat
 
 This separation dramatically improves output quality and reduces token limits.
+
+---
+
+### 6. Apply coding skills
+
+The `Skills/` folder contains four focused constraint files that address
+the most common AI coding failure modes:
+
+| Skill | What it prevents |
+|---|---|
+| `think-first.md` | Silent wrong assumptions, hidden confusion |
+| `simplicity.md` | Overengineering, bloated abstractions, unrequested features |
+| `surgical-changes.md` | Scope creep, reformatting, drive-by refactoring |
+| `goal-driven.md` | Vague execution, missing success criteria |
+
+Agents are instructed to apply all four to every task via `CLAUDE.md`, `AGENTS.md`,
+and `Rules/AI_RULES.md`. No extra setup required.
+
+> The skills were inspired by: https://github.com/forrestchang/andrej-karpathy-skills - (Forrest Chang). Please check out his repository for more information.
 
 ---
 
